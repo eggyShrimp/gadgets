@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>flyWings</title>
+        <style>
+            .wrapper {
+                overflow: hidden;
+            }
+            .middle,.left,.right {
+                float: left;
+            }
+            .middle {
+                width: 100%;
+            }
+            .inner {
+                width: 100%;
+                margin: 0 200px;
+                min-height: 200px;
+                background-color: aliceblue;
+            }
+            .left {
+                margin-left:-100%;
+                width: 200px;
+                min-height: 200px;
+                background-color: antiquewhite;
+            }
+            .right {
+                width: 200px;
+                min-height: 200px;
+                background-color: aqua;
+                margin-left:-200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="middle">
+                <div class="inner">middle</div>
+            </div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+    </body>
+</html>

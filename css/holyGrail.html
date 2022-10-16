@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>holyGrail</title>
+        <style>
+            .wrapper {
+                overflow:hidden;
+                padding: 0 200px;
+            }
+            .wrapper > div {
+                min-height: 200px;
+                float: left;
+                position: relative;
+            }
+            .middle {
+                width: 100%;
+                background-color: aliceblue;
+            }
+            .left {
+                width: 200px;
+                background-color: antiquewhite;
+                margin-left: -100%;
+                left: -200px;
+            }
+            .right {
+                width: 200px;
+                background-color: aqua;
+                margin-left: -200px;
+                right: -200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="middle">middle</div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+    </body>
+</html>
