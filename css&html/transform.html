@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>transform 3d</title>
+        <style>
+            #a,
+            #b {
+                position: absolute;
+                min-height: 200px;
+                width: 200px;
+            }
+
+            #a {
+                left: 10px;
+                top: 10px;
+                z-index: 2;
+                background-color: antiquewhite;
+            }
+
+            #b {
+                left: 50px;
+                top: 50px;
+                z-index: 1;
+                animation: move 1s linear;
+                background-color: aqua;
+            }
+
+            @keyframes move {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(70px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="a">A</div>
+        <div id="b">B</div>
+    </body>
+</html>

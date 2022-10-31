@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>playground</title>
+        <style>
+            dialog {
+                border: 0;
+                border: 1px solid black;
+                box-shadow: 5px 5px 0;
+            }
+            form {
+                padding: 1%;
+            }
+            form label{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            fieldset {
+                margin: 0 40%;
+                border: 1px solid black;
+            }
+            canvas {
+                display: block;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>upload</legend>
+            <form id="form" enctype="multipart/form-data">
+                <label for="form">
+                    Upload
+                    <input type="file" name="cv" accept=".pdf" />
+                </label>
+                <label for="form">
+                    File Name
+                    <input type="text" name="fileName" value="" />
+                </label>
+                <canvas id="signal" width="200" height="100"></canvas>
+                <input type="submit" />
+            </form>
+        </fieldset>
+        <dialog>
+            <form type="dialog">
+                <details open>
+                    <summary>response status</summary>
+                    <p id="result">hello world</p>
+                </details>
+                <button>confirm</button>
+            </form>
+        </dialog>
+        <script>
+            console.log(signal)
+            const canvas = document.querySelector('#signal');
+            canvas.onmousemove = function(e) {
+                let ctx = canvas.getContext('2d');
+                ctx.lineTo(e.clientX, e.clientY);
+                ctx.stroke();
+            }
+            const form = document.querySelector('#form');
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+
+                await fetch('/calc', {
+                    method: 'POST',
+                    body: new FormData(form),
+                }).then((response) => {
+                    const result = response.json();
+                    const dialog = document.querySelector('dialog');
+                    dialog.showModal();
+                    document.querySelector('#result').textContent = result;
+                });
+            };
+            [1, 2, 3].forEach(async ms => {
+                console.log(ms + 'sync')
+                await new Promise(resolve => {
+                    setTimeout(() => console.log(ms + 'async'), ms * 1000)
+                })
+            })
+        </script>
+        <script src="/jsonp?callback=console.log"></script>
+    </body>
+</html>
