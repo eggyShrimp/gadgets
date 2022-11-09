@@ -7,6 +7,7 @@ class Promise {
         this.status = PENDING;
         this.value = undefined;
         this.reason = undefined;
+        // solve the problem happening in the situation of async callbacks
         this.onFulfilledCbs = [];
         this.onRejectedCbs = [];
 

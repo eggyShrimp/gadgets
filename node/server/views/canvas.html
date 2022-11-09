@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>canvas</title>
+        <style>
+            .wrapper {
+                text-align: center;
+            }
+            #canvasElem {
+                height: 200px;
+                width: 500px;
+                outline: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <p>CANVAS</p>
+        <div class="wrapper">
+            <canvas id="canvasElem" width="500" height="200"></canvas>
+            <input type="button" onclick="submit()" value="submit" />
+            <input type="button" onclick="clear()" value="clear" />
+        </div>
+        <script src="../js/load.js"></script>
+        <script>
+            const ctx = canvasElem.getContext('2d');
+            const { x: baseX, y: baseY } = canvasElem.getBoundingClientRect();
+            function draw(e) {
+                ctx.lineTo(e.clientX - baseX, e.clientY - baseY);
+                ctx.stroke();
+            }
+            canvasElem.addEventListener('mousemove', draw);
+
+            async function submit() {
+                let blob = await new Promise((resolve) => {
+                    return canvasElem.toBlob(resolve, 'image/png');
+                });
+                let response = await fetch('./signature', {
+                    method: 'POST',
+                    body: blob,
+                });
+
+                let result = await response.json();
+                alert(result.message);
+            }
+
+            function clear() {
+                console.log(canvasElem.width, canvasElem.height)
+                ctx.clearRect(0, 0, canvasElem.width, canvasElem.height)
+            }
+        </script>
+    </body>
+</html>

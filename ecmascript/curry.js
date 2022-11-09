@@ -3,7 +3,7 @@ function curry(fn) {
         if (fn.length <= args.length) {
             return fn.apply(this, args);
         } else {
-            return function(...args2) {
+            return function (...args2) {
                 return curried.apply(this, args.concat(args2));
             }
         }

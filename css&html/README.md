@@ -80,51 +80,56 @@
 
     @see also: Echarts.js responsive design
 
-16. using CSS to build a triangle
+16. responsive image
 
-17. CSS optimization
+       [响应式图片 - 学习 Web 开发 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) 
 
-     [面试官：如果要做优化，CSS提高性能的方法有哪些？ · Issue #114 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/114) 
+       [object-fit - CSS: Cascading Style Sheets | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) 
 
-    @see also: <link\>, webpack optimization, web optimization
+      [媒体查询 - CSS（层叠样式表） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Media_queries) 
 
-18. advantages/disadvantages of base64
+     @see also: `<img sizes srcset>`
 
-     [Front-End-Interview-Notebook/Css.md at master · CavsZhouyou/Front-End-Interview-Notebook (github.com)](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/Css/Css.md#24简单介绍使用图片-base64-编码的优点和缺点) 
+17. using CSS to build a triangle/geometry
 
-19. which properties can be inherited
+18. CSS optimization
 
-     [css - CSS哪些属性可以继承哪些不可继承 与 CSS优先级算法_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000018411761) 
+      [面试官：如果要做优化，CSS提高性能的方法有哪些？ · Issue #114 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/114) 
 
-20. clear the influence brought by floating
+     @see also: <link\>, webpack optimization, web optimization
 
-     [清除浮动的四种方式及其原理理解 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903504545316877) 
+19. advantages/disadvantages of base64
 
-21. ways to draw a line with 0.5px size
+      [Front-End-Interview-Notebook/Css.md at master · CavsZhouyou/Front-End-Interview-Notebook (github.com)](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/Css/Css.md#24简单介绍使用图片-base64-编码的优点和缺点) 
 
-     [怎么画一条0.5px的边（更新） - 掘金 (juejin.cn)](https://juejin.cn/post/6844903582370643975) 
+20. which properties can be inherited
 
-22. understanding of z-index (stacking context)
+      [css - CSS哪些属性可以继承哪些不可继承 与 CSS优先级算法_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000018411761) 
 
-     [层叠上下文 - CSS（层叠样式表） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) 
+21. clear the influence brought by floating
 
-23. line-height unit (use relative units)
+      [清除浮动的四种方式及其原理理解 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903504545316877) 
 
-     [line-height - CSS: Cascading Style Sheets | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#values) 
+22. ways to draw a line with 0.5px size
 
-24. CSS animation has better performance than JS animation
+      [怎么画一条0.5px的边（更新） - 掘金 (juejin.cn)](https://juejin.cn/post/6844903582370643975) 
 
-     [How to create high-performance CSS animations (web.dev)](https://web.dev/animations-guide/#browser-compatibility) 
+23. understanding of z-index (stacking context)
 
-     [CSS GPU Animation: Doing It Right — Smashing Magazine](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/) 
+      [层叠上下文 - CSS（层叠样式表） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) 
 
-    @see also: rendering pipeline
+24. line-height unit (use relative units)
 
-25. definition of `viewport`
+      [line-height - CSS: Cascading Style Sheets | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#values) 
 
-     [浅谈移动端中的视口（viewport） - 掘金 (juejin.cn)](https://juejin.cn/post/6844903687240810509#heading-0) 
+25. CSS animation has better performance than JS animation
 
-    @see also: <meta\>
+      [How to create high-performance CSS animations (web.dev)](https://web.dev/animations-guide/#browser-compatibility) 
+
+      [CSS GPU Animation: Doing It Right — Smashing Magazine](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/) 
+
+     @see also: rendering pipeline
+
 
 # HTML
 
@@ -133,3 +138,31 @@
     [HTML5新增了哪些特性？ - 掘金 (juejin.cn)](https://juejin.cn/post/6988039257587712008) 
 
    @see also: web storage, SEO
+   
+2. difference between Canvas && SVG
+
+3. role of `<!doctype html>`
+
+     [怪异模式和标准模式 - HTML（超文本标记语言） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) 
+
+4. impact of `<meta>`
+
+   [meta MDN 文档级元数据元素](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta)
+
+5. impact of `<link>`
+
+      [：外部资源链接元素 - HTML（超文本标记语言） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link) 
+
+6. definition of `viewport`
+
+      [浅谈移动端中的视口（viewport） - 掘金 (juejin.cn)](https://juejin.cn/post/6844903687240810509#heading-0) 
+
+     @see also: <meta\>
+
+7. which are the self-closed labels
+
+     `meta` `link` `br` `hr` `img` `input` `area` `base` `source` `track` `col`
+
+      [HTML Standard (whatwg.org) Void Elements](https://html.spec.whatwg.org/multipage/syntax.html#void-elements) 
+
+     @see also： [<base> | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/base) 

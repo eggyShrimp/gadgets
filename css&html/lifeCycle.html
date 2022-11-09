@@ -36,6 +36,8 @@
             alt="MDN infographic"
         />
         <script>
+            // https://developer.chrome.com/blog/page-lifecycle-api/#observing-page-lifecycle-states-in-code
+
             const getState = () => {
                 if (document.visibilityState === 'hidden') {
                     return 'hidden';
@@ -46,59 +48,54 @@
                 return 'passive';
             };
 
-            // Stores the initial state using the `getState()` function (defined above).
             let state = getState();
 
-            // Accepts a next state and, if there's been a state change, logs the
-            // change to the console. It also updates the `state` value defined above.
-            const logStateChange = (nextState) => {
+            const logState = (nextState) => {
                 const prevState = state;
                 if (nextState !== prevState) {
-                    console.log(`State change: ${prevState} >>> ${nextState}`);
+                    console.log(`State change: ${prevState} => ${nextState}`);
                     state = nextState;
                 }
             };
 
-            // These lifecycle events can all use the same listener to observe state
-            // changes (they call the `getState()` function to determine the next state).
-            ['pageshow', 'focus', 'blur', 'visibilitychange', 'resume'].forEach(
-                (type) => {
-                    window.addEventListener(
-                        type,
-                        () => logStateChange(getState()),
-                        {
-                            capture: true,
-                        }
-                    );
-                }
-            );
+            const life = [
+                'focus',
+                'blur',
+                'pageshow',
+                'resume',
+                'terminated',
+                'discarded',
+                'visibilitychange',
+            ];
 
-            // The next two listeners, on the other hand, can determine the next
-            // state from the event itself.
+            const signal = new AbortController();
+
+            life.forEach((state) => {
+                window.addEventListener(state, () => logState(getState()), {
+                    capture: true,
+                    once: false,
+                    passive: false,
+                    signal: signal,
+                });
+            });
+
             window.addEventListener(
                 'freeze',
                 () => {
-                    // In the freeze event, the next state is always frozen.
-                    logStateChange('frozen');
+                    logState('froozen');
                 },
-                { capture: true }
+                {
+                    capture: true,
+                }
             );
 
-            window.addEventListener(
-                'pagehide',
-                (event) => {
-                    if (event.persisted) {
-                        // If the event's persisted property is `true` the page is about
-                        // to enter the Back-Forward Cache, which is also in the frozen state.
-                        logStateChange('frozen');
-                    } else {
-                        // If the event's persisted property is not `true` the page is
-                        // about to be unloaded.
-                        logStateChange('terminated');
-                    }
-                },
-                { capture: true }
-            );
+            window.addEventListener('pagehide', (event) => {
+                if (event.persisted) {
+                    logState('frozen');
+                } else {
+                    logState('terminated');
+                }
+            });
         </script>
     </body>
 </html>

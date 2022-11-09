@@ -1,9 +1,10 @@
-function instanceOf(o, right) {
-    const proto = right.prototype;
-    let left = o.__proto__;
-    while (true) {
-        if (!left) return false;
-        if (left == proto) return true;
-        left = left.__proto__;
+function instanceOf(obj, target) {
+    let right = target.prototype;
+    // left = obj.__proto__;
+    let left = Object.getPrototypeOf(obj);
+    while (left) {
+        if (left === right) return true;
+        left = Object.getPrototypeOf(left);
     }
+    return false;
 }

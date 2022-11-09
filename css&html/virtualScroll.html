@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>virtual scrolling</title>
+        <style>
+            .wrapper {
+                overflow: hidden;
+                height: 500px;
+                background-color: antiquewhite;
+            }
+            .item {
+                height: 50px;
+            }
+            .item:nth-child(2n + 1) {
+                background-color: yellowgreen;
+            }
+            .item:nth-child(2n) {
+                background-color: aqua;
+            }
+            .target {
+                transform: translateY(-30px);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper" id="virtual">
+            <div id="container">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+                <div class="item">9</div>
+                <div class="item">10</div>
+                <div class="item">11</div>
+                <div class="item">12</div>
+            </div>
+        </div>
+        <script>
+            class VirtualScroll {
+                constructor(el, list, itemGenerator, itemHeight) {
+                    this.el = el;
+                    this.list = list;
+                    this.itemHeight = itemHeight;
+                    this.itemGenerator = itemGenerator;
+                    this.virtualOffset = 0;
+
+                    this.mapList();
+                    this.initContainer();
+                    this.render(this.virtualOffset);
+                }
+
+                initContainer() {
+                    this.containerHeight = this.el.clientHeight;
+                    this.el.style.overflow = 'hidden';
+                }
+
+                mapList() {
+                    this._list = this.list.map((item, i) => ({
+                        height: this.itemHeight,
+                        index: i,
+                        item: item,
+                    }));
+                }
+
+                bindEvents() {
+                    const updateOffset = (e) => {
+                        e.preventDefault();
+                        this.virtualOffset += e.deltaY;
+                        this.render(this.virtualOffset);
+                    };
+                    this.el.addEventListener('wheel', updateOffset);
+                }
+
+                render(virtualOffset) {
+                    const headIdx = findIndexOverHeight(
+                        this._list,
+                        virtualOffset
+                    );
+                    const tailIdx = findIndexOverHeight(
+                        this._list,
+                        virtualOffset + this.containerHeight
+                    );
+
+                    this.renderOffset =
+                        this.virtualOffset - sumHeight(this._list, 0, headIdx);
+                    this.renderList = this._list.slice(headIdx, tailIdx + 1);
+
+                    const fragment = document.createElement('div');
+                    this.renderList.forEach((item) => {
+                        fragment.append(this.itemGenerator(item));
+                    });
+                    fragment.style.transform = `translateY(-${this.renderOffset})`;
+                    this.el.innerHTML = '';
+                    this.el.append(fragment);
+                }
+            }
+
+            function findIndexOverHeight(list, offset) {
+                let currentHeight = 0;
+                for (let i = 0; i < list.length; i++) {
+                    const { height } = list[i];
+                    currentHeight += height;
+
+                    if (currentHeight > offset) {
+                        return i;
+                    }
+                }
+
+                return list.length - 1;
+            }
+
+            function sumHeight(list, start = 0, end = list.length) {
+                let height = 0;
+                for (let i = start; i < end; i++) {
+                    height += list[i].height;
+                }
+
+                return height;
+            }
+            // performance optimization with wheel events
+            function throttle(fn, ms) {
+                let savedArgs = (savedThis = null),
+                    isThrottled = false;
+
+                return function wrapper(...args) {
+                    if (isThrottled) {
+                        savedArgs = args;
+                        savedThis = this;
+                        return;
+                    }
+                    isThrottled = true;
+                    fn.apply(this, args);
+                    setTimeout(() => {
+                        isThrottled = false;
+                        wrapper.apply(savedThis, savedArgs);
+                        savedArgs = savedThis = null;
+                    }, ms);
+                };
+            }
+        </script>
+    </body>
+</html>

@@ -1,12 +1,12 @@
-function deepClone(o, depth) {
-    if (!o) return null;
-    const ret = new o.constructor();
-    for (let key in o) {
-        if (o.hasOwnProperty(key)) {
-            ret[key] = typeof ret[key] == 'object' && depth ?
-                deepClone(o[key], depth - 1):
-                o[key]; 
+function deepClone(obj, depth) {
+    if (!obj) return null;
+    let clone = new obj.constructor();
+    // divergences between for...in and Object.keys
+    for (let key in obj) {
+        if ( obj.hasOwnProperty(key) ) {
+            clone[key] = depth && typeof obj[key] === 'object' ? 
+                deepClone(obj[key]) : obj[key];
         }
     }
-    return ret;
+    return clone;
 }

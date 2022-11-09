@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>link</title>
+        <link rel="stylesheet" href="../css/default.css">
+        <link rel="stylesheet preload" href="../css/red.css" title="red">
+        <link rel="stylesheet alternate" href="../css/blue.css" title="blue">
+        <link rel="stylesheet" href="../css/yellow.css" media="print">
+    </head>
+    <body>
+        <p>Alternate stylesheet test</p>
+        <input type="button" value="toggle" id="toggle">
+        <script>
+            let style = document.querySelector('link[title="blue"]')
+            console.log(style);
+            toggle.addEventListener('click', e => { 
+                style.disabled = !style.disabled;
+            })
+        </script>
+    </body>
+</html>
