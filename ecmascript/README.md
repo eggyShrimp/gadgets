@@ -1,4 +1,4 @@
-![鲤鱼王](https://tva1.sinaimg.cn/large/006hPLGily1h7z6x04ypej30690693zi.jpg)
+<img style="text-align:center" src="https://tva1.sinaimg.cn/large/006hPLGily1h7z6x04ypej30690693zi.jpg">
 
 # ECMAScript
 
