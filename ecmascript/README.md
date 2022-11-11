@@ -64,6 +64,8 @@
 
      [面试官：深拷贝浅拷贝的区别？如何实现一个深拷贝？ · Issue #56 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/56) 
 
+    @see also: variable storage in memory
+
 15. IEEE-754, `Number.MAX_VALUE` `Number.MAX_SAFE_INTEGER` `Number.EPSILON`
 
       `2 ** 1023 * (parseInt('1'.repeat(53), 2) * 2 ** -52) == Number.MAX_VALUE`
@@ -108,6 +110,8 @@
 
     [深入JavaScript系列（三）：闭包 · Issue #3 · logan70/Blog (github.com)](https://github.com/logan70/Blog/issues/3) 
 
+     [闭包 - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures) 
+
 26. Memory Leaking
 
     [面试官：说说 JavaScript 中内存泄漏的几种情况？ · Issue #78 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/78) 
@@ -130,7 +134,9 @@
 
     [A tour of V8: Garbage Collection — jayconrod.com](https://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection) 
 
-     [javascript 垃圾回收算法了解一下 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903619720904717) 
+    [V8 之旅： 垃圾回收器 – NewHTML](http://newhtml.net/v8-garbage-collection/) 
+
+    [javascript 垃圾回收算法了解一下 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903619720904717) 
 
 30. generator mechanism
 
@@ -142,13 +148,15 @@
 
 32. Event Loop mechanism
 
-       [深入解析你不知道的 EventLoop 和浏览器渲染、帧动画、空闲回调（动图演示） - 掘金 (juejin.cn)](https://juejin.cn/post/6844904165462769678) 
+    [深入解析你不知道的 EventLoop 和浏览器渲染、帧动画、空闲回调（动图演示） - 掘金 (juejin.cn)](https://juejin.cn/post/6844904165462769678) 
 
-       [Event Loop的规范和实现](https://juejin.cn/post/6844903552402325511)
+    [Event Loop的规范和实现](https://juejin.cn/post/6844903552402325511)
 
-     [Node.js 事件循环，定时器和 process.nextTick() | Node.js (nodejs.org)](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/) 
+    [Node.js 事件循环，定时器和 process.nextTick() | Node.js (nodejs.org)](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/) 
 
-     [Event Loop and the Big Picture — NodeJS Event Loop Part 1 | by Deepal Jayasekara | Deepal’s Blog (insiderattack.net)](https://blog.insiderattack.net/event-loop-and-the-big-picture-nodejs-event-loop-part-1-1cb67a182810) 
+    [Event Loop and the Big Picture — NodeJS Event Loop Part 1 | by Deepal Jayasekara | Deepal’s Blog (insiderattack.net)](https://blog.insiderattack.net/event-loop-and-the-big-picture-nodejs-event-loop-part-1-1cb67a182810) 
+
+    @see also: it encounters problems in the situation of event model (bubbling)
 
 33. `Promise` implementation
 
@@ -264,9 +272,9 @@
 
 11. CSRF XSS attack => definition and ways to tackle with situations
 
-       [前端安全 - 美团技术团队 (meituan.com)](https://tech.meituan.com/tags/前端安全.html) 
+     [前端安全 - 美团技术团队 (meituan.com)](https://tech.meituan.com/tags/前端安全.html) 
 
-      [Referrer-Policy - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy) 
+     [Referrer-Policy - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy) 
 
      [Referrer Policy Web.DEV](https://web.dev/referrer-best-practices)
 
@@ -276,9 +284,11 @@
 
 12. difference between CMJ && ES Module
 
-      [聊聊什么是CommonJs和Es Module及它们的区别 - 掘金 (juejin.cn)](https://juejin.cn/post/6938581764432461854) 
+       [聊聊什么是CommonJs和Es Module及它们的区别 - 掘金 (juejin.cn)](https://juejin.cn/post/6938581764432461854) 
 
-     @see also: difference between Vite & Webpack
+      [CommonJs和ES6 module的区别是什么呢？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/62791509/answer/2345796861) 
+
+      @see also: difference between Vite & Webpack
 
 13. web performance optimization
 
@@ -335,6 +345,8 @@
       [深入源码理解reactive和ref - 掘金 (juejin.cn)](https://juejin.cn/post/6992976063479431175#heading-11) (Vue3)
 
       [Object的变化侦测 | Vue源码系列-Vue中文社区 (vue-js.com)](https://vue-js.com/learn-vue/reactive/object.html#_1-前言) (Vue2)
+
+      [watcher 更新如何与 nextTick 协作 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/139524398) 
 
 3. the ideology of Vue Diff
 

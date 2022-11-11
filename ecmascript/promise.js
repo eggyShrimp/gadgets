@@ -49,4 +49,57 @@ class Promise {
             })
         }
     }
+
+    all(arr) {
+        let containPromise = false;
+        let ret = [];
+        return new Promise((resolve, reject) => {
+            for (let item of arr) {
+                if (isPromise(item)) {
+                    containPromise = true;
+                    item.then(data => {
+                        ret.push(data);
+                        if (ret.length === arr.length) {
+                            resolve(ret);
+                        }
+                    }).catch(err => {
+                        reject(err);
+                    })
+                } else {
+                    ret.push(item);
+                }
+            }
+            if (!containPromise) resolve(ret);
+        })
+    }
+
+    race(arr) {
+        return new Promise((resolve, reject) => {
+            arr.forEach(item => {
+                item.then(resolve, reject);
+            })
+        })
+    }
+
+    allSettled(arr) {
+        const resolveHandler = value => ({status: FULFILLED, value: value});
+        const rejectHandler = reason => ({status: REJECTED, reason: reason});
+
+        const converted = arr.map(item => item.then(resolveHandler, rejectHandler));
+        return Promise.all(converted);
+    }
+
+    promisify(fn) {
+        return function wrapper(...args) {
+            return new Promise((resolve, reject) => {
+                return fn(...args, function(error, data) {
+                    
+                })
+            })
+        }
+    }
+}
+
+function isPromise(o) {
+    return !!o && typeof o === 'object' && typeof o.then === 'function';
 }
