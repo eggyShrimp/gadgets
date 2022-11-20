@@ -16,7 +16,7 @@
 
     [脚本：async，defer (javascript.info)](https://zh.javascript.info/script-async-defer) 
 
-   @see also: browser mechanism, lifecycle API
+   @see also: browser mechanism, lifecycle API, lazy loading
 
 3. difference between keyword `var` `let` `const` 
 
@@ -262,6 +262,8 @@
 
    [Page Lifecycle API - Chrome Developers](https://developer.chrome.com/blog/page-lifecycle-api/) 
 
+   ![Hs3H9gK98YT0pvvU3k25.png (3280×2218) (imgix.net)](https://wd.imgix.net/image/kheDArv5csY6rvQUJDbWRscckLr1/Hs3H9gK98YT0pvvU3k25.png) 
+
    @see also: rendering pipeline of browser
 
    @see also: 
@@ -416,7 +418,7 @@
 
 2. basic ideology of VueX
 
-   
+   [Vuex 是什么？ | Vuex (vuejs.org)](https://vuex.vuejs.org/zh/index.html) 
 
 3. lazy load of Vue Router
 
@@ -434,13 +436,10 @@
 
 # Webpack / Vite
 
-1. steps of using webpack to build modules
+1. procedure of using webpack to build modules
 
 2. vue loader
 
      [介绍 | Vue Loader (vuejs.org)](https://vue-loader.vuejs.org/zh/) 
-
-
-
-
-
+     
+3. the source code reading of `co`, `axios`
