@@ -92,8 +92,9 @@ class Promise {
     promisify(fn) {
         return function wrapper(...args) {
             return new Promise((resolve, reject) => {
-                return fn(...args, function(error, data) {
-                    
+                fn(...args, function(error, data) {
+                    if (error) reject(error);
+                    resolve(data);
                 })
             })
         }

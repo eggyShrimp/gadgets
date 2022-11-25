@@ -56,37 +56,39 @@
 
 12. difference between `==` && `===`
 
+    @see also: data type transformation
+
 13. difference between `for in` and `for of`
 
-       *JavaScript Advanced Programming Design Ch.3*
+    *JavaScript Advanced Programming Design Ch.3*
 
 14. difference between Deep Clone && Shallow Clone
 
-     [面试官：深拷贝浅拷贝的区别？如何实现一个深拷贝？ · Issue #56 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/56) 
+    [面试官：深拷贝浅拷贝的区别？如何实现一个深拷贝？ · Issue #56 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/56) 
 
     @see also: variable storage in memory
 
 15. IEEE-754, `Number.MAX_VALUE` `Number.MAX_SAFE_INTEGER` `Number.EPSILON`
 
-      `2 ** 1023 * (parseInt('1'.repeat(53), 2) * 2 ** -52) == Number.MAX_VALUE`
+    `2 ** 1023 * (parseInt('1'.repeat(53), 2) * 2 ** -52) == Number.MAX_VALUE`
 
 16. difference between encoding styles UCS, UTF, ASCII
 
-       [刨根究底学编程 - 知乎 (zhihu.com)](https://www.zhihu.com/column/paogenjiudi?utm_source=com.microsoft.emmx&utm_medium=social&utm_oi=1414920246902353920) 
+    [刨根究底学编程 - 知乎 (zhihu.com)](https://www.zhihu.com/column/paogenjiudi?utm_source=com.microsoft.emmx&utm_medium=social&utm_oi=1414920246902353920) 
 
 17. RegExp Learnings
 
-       [Regex Learn - 正则表达式交互式课程](https://regexlearn.com/zh-cn/learn) 
+    [Regex Learn - 正则表达式交互式课程](https://regexlearn.com/zh-cn/learn) 
 
 18. Data Type Transformation -- Basic Data Type && Reference Data Type
 
-       [对象 —— 原始值转换 (javascript.info)](https://zh.javascript.info/object-toprimitive) 
+    [对象 —— 原始值转换 (javascript.info)](https://zh.javascript.info/object-toprimitive) 
 
-       [why-is-0-false](https://stackoverflow.com/questions/47015361/why-is-0-false) 
+    [why-is-0-false](https://stackoverflow.com/questions/47015361/why-is-0-false) 
 
 19. semi-Array definition and how to convert them
 
-       [你真的会将类数组转化为数组吗 - 掘金 (juejin.cn)](https://juejin.cn/post/6844904047258910728) 
+    [你真的会将类数组转化为数组吗 - 掘金 (juejin.cn)](https://juejin.cn/post/6844904047258910728) 
 
 20. the procedure of `new ` keyword
 
@@ -94,7 +96,7 @@
 
        *JavaScript Advanced Programming Design Ch.8*  [类继承 (javascript.info)](https://zh.javascript.info/class-inheritance) 
 
-22. difference between `Object.getPrototypeOf` `obj.prototype` `obj.__proto__`
+22. difference between `Object.getPrototypeOf` `objectConstructor.prototype` `obj.__proto__`
 
       `Object.getPrototypeOf` have analogous usages with `obj.__proto__`
 
@@ -110,7 +112,7 @@
 
     [深入JavaScript系列（三）：闭包 · Issue #3 · logan70/Blog (github.com)](https://github.com/logan70/Blog/issues/3) 
 
-     [闭包 - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures) 
+    [闭包 - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures) 
 
 26. Memory Leaking
 
@@ -140,7 +142,7 @@
 
 30. generator mechanism
 
-       *JavaScript Ninja*
+    *JavaScript Ninja*
 
 31. generator termination ways
 
@@ -160,7 +162,7 @@
 
 33. `Promise` implementation
 
-       @see also: event loop, generator
+    @see also: event loop, generator
 
 # BOM & DOM & Event Model
 
@@ -266,75 +268,79 @@
 
    @see also: rendering pipeline of browser
 
-   @see also: 
+10. why are the `unload` and `beforeunload` events not recommended.
 
-10. how JS/CSS foil the rendering pipeline
+    [Legacy lifecycle APIs to avoid](https://developer.chrome.com/blog/page-lifecycle-api/#legacy-lifecycle-apis-to-avoid) 
 
-    @see also: `visibility` `display`
+    @keywords:  [WebKit Page Cache I – The Basics | WebKit](https://webkit.org/blog/427/webkit-page-cache-i-the-basics/) 
 
-11. CSRF XSS attack => definition and ways to tackle with situations
+11. how JS/CSS foil the rendering pipeline
 
-     [前端安全 - 美团技术团队 (meituan.com)](https://tech.meituan.com/tags/前端安全.html) 
+     @see also: `visibility` `display`
 
-     [Referrer-Policy - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy) 
+12. CSRF XSS attack => definition and ways to tackle with situations
 
-     [Referrer Policy Web.DEV](https://web.dev/referrer-best-practices)
+      [前端安全 - 美团技术团队 (meituan.com)](https://tech.meituan.com/tags/前端安全.html) 
+
+      [Referrer-Policy - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy) 
+
+      [Referrer Policy Web.DEV](https://web.dev/referrer-best-practices)
 
       @see also: cookie
 
-     @see also: the understanding of Referrer policy (privacy leaking)
+      @see also: the understanding of Referrer policy (privacy leaking)
 
-12. difference between CMJ && ES Module
+13. difference between CMJ && ES Module
 
        [聊聊什么是CommonJs和Es Module及它们的区别 - 掘金 (juejin.cn)](https://juejin.cn/post/6938581764432461854) 
 
-      [CommonJs和ES6 module的区别是什么呢？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/62791509/answer/2345796861) 
+       [CommonJs和ES6 module的区别是什么呢？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/62791509/answer/2345796861) 
 
-      @see also: difference between Vite & Webpack
+       @see also: difference between Vite & Webpack
 
-13. web performance optimization
+14. web performance optimization
 
-       [Web 性能 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/Performance) 
+    [Web 性能 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/Performance) 
 
-     [Largest Contentful paint](https://web.dev/i18n/zh/lcp/)
+    [Largest Contentful paint](https://web.dev/i18n/zh/lcp/)
 
-      @see also: rendering pipeline, Vue Lazy Loading
+    @see also: rendering pipeline, Vue Lazy Loading
 
-14. difference between FCP and LCP
+15. difference between FCP and LCP
 
-      [First Contentful Paint 首次内容绘制 (FCP) (web.dev)](https://web.dev/i18n/zh/fcp/#如何改进-fcp) 
+       [First Contentful Paint 首次内容绘制 (FCP) (web.dev)](https://web.dev/i18n/zh/fcp/#如何改进-fcp) 
 
-      [Largest Contentful Paint 最大内容绘制 (LCP) (web.dev)](https://web.dev/i18n/zh/lcp/#如何改进-lcp) 
+       [Largest Contentful Paint 最大内容绘制 (LCP) (web.dev)](https://web.dev/i18n/zh/lcp/#如何改进-lcp) 
 
-     @see also: web performance
+      @see also: web performance
 
-15. Cache
+16. Cache
 
-      [彻底弄懂 Http 缓存机制 - 基于缓存策略三要素分解法](https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ?)
+       [彻底弄懂 Http 缓存机制 - 基于缓存策略三要素分解法](https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ?)
 
-      *HTTP authoritative guideline Ch.Cache*
+       *HTTP authoritative guideline Ch.Cache*
 
-      @see also: REST cache, difference between `F5` and `Ctrl+F5`, CDN
+       @see also: REST cache, difference between `F5` and `Ctrl+F5`, CDN
 
-16. the understanding of CDN
+17. the understanding of CDN
 
-       [面试官：如何理解CDN？说说实现原理？ · Issue #142 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/142) 
+    [面试官：如何理解CDN？说说实现原理？ · Issue #142 · febobo/web-interview (github.com)](https://github.com/febobo/web-interview/issues/142) 
 
-      @see also: DNS load balancing
+    @see also: DNS load balancing
 
-17. implementation of virtual scrolling
+18. implementation of virtual scrolling
 
-      [Virtual scrolling](https://juejin.cn/post/6844904183582162957#heading-0)
+    [Virtual scrolling](https://juejin.cn/post/6844904183582162957#heading-0)
 
-18. implementation of lazy loading (images)
+19. implementation of lazy loading (images)
 
-       [使用延迟加载提高加载速度 (web.dev)](https://web.dev/lazy-loading/#implementing) 
+    [使用延迟加载提高加载速度 (web.dev)](https://web.dev/lazy-loading/#implementing) 
+        
+    [Lazy loading - Web performance | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading) 
 
-       [Lazy loading - Web performance | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading) 
+    @see also: web performance optimization
 
-     @see also: web performance optimization
-
-     @see also: largest contentful paint
+    @see also: largest contentful paint
 
 # Vue
 

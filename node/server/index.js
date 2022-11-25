@@ -7,14 +7,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/link', (req, res) => {
-    res.sendFile(`${__dirname}/views/link.html`)
+    res.sendFile(`${__dirname}/views/link.html`);
 })
 
 const canvas = require('./router/canvas.js');
 
 app.use('/canvas', canvas);
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
