@@ -12,8 +12,10 @@ function throttle(fn, ms) {
         fn.apply(this, args);
         setTimeout(() => {
             isThrottled = false;
-            wrapper.apply(savedThis, savedArgs);
-            savedArgs = savedThis = null;
+            if (savedArgs) {
+                wrapper.apply(savedThis, savedArgs);
+                savedArgs = savedThis = null;
+            }
         }, ms);
     }
 }

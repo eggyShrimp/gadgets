@@ -1,15 +1,29 @@
-function SuperType() {}
-function SubType() {}
-SubType.prototype = new SuperType();
-
-function SuperType() {}
-function SubType() {
-    SuperType.call(this);
+function inheritPrototype(SubType, SuperType) {
+    let prototype = Object.create(SuperType.prototype);
+    prototype.constructor = SubType;
+    SubType.prototype = prototype;
 }
 
-function SuperType() {}
-function SubType() {
-    let o = Object.create(SuperType.prototype);
-    o.constructor = SubType;
-    return o;
+function object(prototype) {
+    function F() {}
+    F.prototype = prototype;
+    return new F();
+}
+
+function SuperType(name) {
+    this.name = name;
+}
+
+SuperType.prototype.sayName = function() {
+    console.log(this.name);
+}
+
+function SubType(name) {
+    SuperType.call(this, name);
+}
+
+inheritPrototype(SubType, SuperType);
+
+SubType.prototype.sayName = function() {
+    console.log(this.name);
 }

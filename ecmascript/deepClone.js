@@ -10,3 +10,10 @@ function deepClone(obj, depth) {
     }
     return clone;
 }
+/**
+ * lodash
+ * https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/.internal/baseClone.js#L157
+ */
+function baseClone() {
+    
+}

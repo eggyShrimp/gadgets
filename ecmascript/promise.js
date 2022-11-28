@@ -52,21 +52,22 @@ class Promise {
 
     all(arr) {
         let containPromise = false;
-        let ret = [];
+        let ret = [], count = 0;
         return new Promise((resolve, reject) => {
             for (let item of arr) {
+                count++;
                 if (isPromise(item)) {
                     containPromise = true;
                     item.then(data => {
-                        ret.push(data);
-                        if (ret.length === arr.length) {
+                        ret[i] = data;
+                        if (count === arr.length) {
                             resolve(ret);
                         }
                     }).catch(err => {
                         reject(err);
                     })
                 } else {
-                    ret.push(item);
+                    ret[i] = item;
                 }
             }
             if (!containPromise) resolve(ret);

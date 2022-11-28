@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>square</title>
+        <style>
+            .square1 {
+                width: 200px;
+                background-color: red;
+            }
+            .square1:after {
+                content: '';
+                display: block;
+                background-color: aqua;
+                padding: 50% 0;
+            }
+            .square2 {
+                width: 200px;
+                background-color: yellowgreen;
+                aspect-ratio: 1/1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="square1"></div>
+        <div class="square2"></div>
+    </body>
+</html>

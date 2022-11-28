@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>center</title>
+        <style>
+            .wrapper {
+                height: 200px;
+                border: 1px solid grey;
+            }
+            .item {
+                width: 100px;
+                height: 100px;
+                background-color: yellowgreen;
+            }
+            .wrapper1 {
+                width: auto;
+            }
+            .item1 {
+                display: block;
+                margin: 0 auto;
+            }
+            .wrapper2 {
+                width: auto;
+                text-align: center;
+            }
+            .item2 {
+                display: inline-block;
+                line-height: 200px;
+            }
+            .wrapper3 {
+                position: relative;
+            }
+            .item3 {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .wrapper4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .item4 {
+                
+            }
+            .wrapper5 {
+                display: grid;
+                justify-content: center;
+                align-items: center;
+            }
+            .item5 {
+                
+            }
+            .wrapper6 {
+                display: grid;
+                grid-template-columns: [start] 100% [end];
+            }
+            .item6 {
+                justify-self: center;
+                align-self: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper1 wrapper">
+            <div class="item1 item">item1</div>
+        </div>
+        <div class="wrapper2 wrapper">
+            <div class="item2 item">item2</div>
+        </div>
+        <div class="wrapper3 wrapper">
+            <div class="item3 item">item3</div>
+        </div>
+        <div class="wrapper4 wrapper">
+            <div class="item4 item">item4</div>
+        </div>
+        <div class="wrapper5 wrapper">
+            <div class="item5 item">item5</div>
+        </div>
+        <div class="wrapper6 wrapper">
+            <div class="item6 item">item6</div>
+        </div>
+    </body>
+</html>

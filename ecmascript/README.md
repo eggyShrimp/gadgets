@@ -218,13 +218,15 @@
 
 3. definition of Cross Origin, methods to cope with it
 
-    [跨源资源共享（CORS） - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS) 
+   [跨源资源共享（CORS） - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS) 
 
    JSONP, `script`.etc
 
    @see also: status code(204)
 
    @see also: `HTTP-equiv` , <meta\>
+
+   @see also:  [XMLHttpRequest.withCredentials - Web API 接口参考 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/withCredentials) 
 
 4. ways to tackle with cross origin
 
@@ -300,11 +302,13 @@
 
 14. web performance optimization
 
-    [Web 性能 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/Performance) 
+     [Web 性能 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/Performance) 
 
-    [Largest Contentful paint](https://web.dev/i18n/zh/lcp/)
+     [Largest Contentful paint](https://web.dev/i18n/zh/lcp/)
 
-    @see also: rendering pipeline, Vue Lazy Loading
+     [如何进行 web 性能监控？ | AlloyTeam](http://www.alloyteam.com/2020/01/14184/) 
+
+     @see also: rendering pipeline, Vue Lazy Loading
 
 15. difference between FCP and LCP
 
