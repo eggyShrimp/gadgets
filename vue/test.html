@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>playground</title>
+        <link href="https://cdn-icons-png.flaticon.com/512/9072/9072163.png" rel="icon">
+        <meta name="author" content="yif90s">
+        <scritp type="text/x-template" id="tree-item"></scritp>
+        <style>
+            p {
+                color: whitesmoke;
+            }
+            .aquamarine {
+                background-color: aquamarine;
+            }
+            .blue {
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{ state.message }}</h1>
+            <button @click="store++">add 1 to store</button>
+            <div>{{ store }}</div>
+            <div>{{ double }}</div>
+        </div>
+        <script type="module">
+            import { createApp, reactive, ref, computed } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+            createApp({
+                setup() {
+                    const state = reactive({
+                        message: 'hello yif90s',
+                    });
+
+                    const store = ref(4);
+
+                    const double = computed(() => {
+                        return store.value ** 2;
+                    })
+                    
+                    return {
+                        state,
+                        store,
+                        double
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </body>
+</html>
