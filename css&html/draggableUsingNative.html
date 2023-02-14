@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>drag</title>
+        <style>
+            .item {
+                outline: 2px solid black;
+                width: 200px;
+                padding: 10px;
+                margin-bottom: 15px;
+                box-shadow: 5px 5px 0 0 grey;
+                background-color: white;
+            }
+        </style>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <tree-item
+                    v-for="(item, index) of list"
+                    :key="item.value"
+                    :data="{value: item.value, index}"
+                    @update:p="updateP"
+                    @update:l="updateL"
+                    @dragend="dragend"
+                    @drag="drag"
+                ></tree-item>
+            </ul>
+        </div>
+        <script type="text/x-template" id="treeItem">
+            <li class="item" draggable="true" @dragstart="dragstart" @dragover="dragover" @dragend="dragend" @drag="drag">
+                {{ data.value }}
+            </li>
+        </script>
+        <script type="module">
+            const { createApp, ref, reactive, computed, defineEmits } = Vue;
+
+            const TreeItem = {
+                name: 'TreeItem',
+                props: ['data'],
+                template: '#treeItem',
+                emits: ['update:p', 'update:l', 'dragend', 'drag'],
+                setup(props, { emit }) {
+                    function dragstart(event) {
+                        emit('update:p', props.data.value);
+                    }
+
+                    function dragover(event) {
+                        emit('update:l', props.data.value);
+                    }
+
+                    function dragend(event) {
+                        emit('dragend');
+                    }
+
+                    function drag(event) {
+                        emit('drag')
+                    }
+
+                    return {
+                        dragstart,
+                        dragover,
+                        dragend,
+                        drag
+                    };
+                },
+            };
+            createApp({
+                components: {
+                    TreeItem,
+                },
+                setup() {
+                    const list = reactive(getData());
+
+                    let p, l;
+
+                    function updateP(value) {
+                        p = list.findIndex((val) => val.value === value);
+                    }
+
+                    function updateL(value) {
+                        l = list.findIndex((val) => val.value === value);
+                    }
+
+                    function drag() {
+                        // [list[p], list[l]] = [list[l], list[p]];
+                    }
+
+                    function dragend() {
+                        [list[p], list[l]] = [list[l], list[p]];
+                    }
+
+                    return {
+                        list,
+                        updateP,
+                        updateL,
+                        dragend,
+                        drag,
+                    };
+                },
+            }).mount('#app');
+
+            function useMouse() {
+                const x = ref(0),
+                    y = ref(0);
+
+                function update(event) {
+                    x.value = event.pageX;
+                    y.value = event.pageY;
+                }
+
+                onMounted(() => window.addEventListener('mousemove', update));
+                onUnmounted(() =>
+                    window.removeEventListener('mousemove', update)
+                );
+            }
+
+            function getData(n = 20) {
+                return new Array(n).fill().map((subValue, index) => ({
+                    value: index,
+                }));
+            }
+        </script>
+    </body>
+</html>

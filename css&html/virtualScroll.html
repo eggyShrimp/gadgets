@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>virtual scrolling</title>
+        <title>playground</title>
         <style>
-            .wrapper {
-                overflow: hidden;
-                height: 500px;
-                background-color: antiquewhite;
-            }
             .item {
-                height: 50px;
+                padding: 10px;
+                height: 30px;
+                outline: 1px solid black;
+                box-shadow: 5px 5px 0 0 gray;
+                margin-top: 15px;
             }
-            .item:nth-child(2n + 1) {
-                background-color: yellowgreen;
-            }
-            .item:nth-child(2n) {
-                background-color: aqua;
-            }
-            .target {
-                transform: translateY(-30px);
+            #wrapper {
+                position: fixed;
+                padding: 20px;
+                width: 300px;
+                height: 300px;
+
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+
+                margin: auto;
+
+                outline: 1px solid black;
+                overflow: hidden;
             }
         </style>
     </head>
     <body>
-        <div class="wrapper" id="virtual">
-            <div id="container">
-                <div class="item">1</div>
-                <div class="item">2</div>
-                <div class="item">3</div>
-                <div class="item">4</div>
-                <div class="item">5</div>
-                <div class="item">6</div>
-                <div class="item">7</div>
-                <div class="item">8</div>
-                <div class="item">9</div>
-                <div class="item">10</div>
-                <div class="item">11</div>
-                <div class="item">12</div>
-            </div>
+        <div id="wrapper">
+            <div id="animate"></div>
         </div>
         <script>
+            const data = new Array(30).fill().map((val, idx) => idx);
+
             class VirtualScroll {
                 constructor(el, list, itemGenerator, itemHeight) {
                     this.el = el;
@@ -51,11 +46,7 @@
                     this.mapList();
                     this.initContainer();
                     this.render(this.virtualOffset);
-                }
-
-                initContainer() {
-                    this.containerHeight = this.el.clientHeight;
-                    this.el.style.overflow = 'hidden';
+                    this.bindEvents();
                 }
 
                 mapList() {
@@ -66,12 +57,21 @@
                     }));
                 }
 
+                initContainer() {
+                    this.containerHeight = this.el.clientHeight;
+                    this.el.style.overflow = 'hidden';
+                    this.contentHeight = sumHeight(this._list)
+                }
+
                 bindEvents() {
                     const updateOffset = (e) => {
                         e.preventDefault();
-                        this.virtualOffset += e.deltaY;
+                        this.virtualOffset += e.deltaY / 5;
+                        this.virtualOffset = Math.max(0, this.virtualOffset);
+                        this.virtualOffset = Math.min(this.contentHeight, this.virtualOffset);
                         this.render(this.virtualOffset);
                     };
+
                     this.el.addEventListener('wheel', updateOffset);
                 }
 
@@ -89,15 +89,17 @@
                         this.virtualOffset - sumHeight(this._list, 0, headIdx);
                     this.renderList = this._list.slice(headIdx, tailIdx + 1);
 
-                    const fragment = document.createElement('div');
+                    animate.innerHTML = '';
                     this.renderList.forEach((item) => {
-                        fragment.append(this.itemGenerator(item));
+                        animate.append(this.itemGenerator(item));
                     });
-                    fragment.style.transform = `translateY(-${this.renderOffset})`;
-                    this.el.innerHTML = '';
-                    this.el.append(fragment);
+                    animate.style.transform = `translateY(-${this.renderOffset}px)`;
                 }
             }
+
+            new VirtualScroll(wrapper
+                , data
+                , generateItem, 65);
 
             function findIndexOverHeight(list, offset) {
                 let currentHeight = 0;
@@ -121,25 +123,13 @@
 
                 return height;
             }
-            // performance optimization with wheel events
-            function throttle(fn, ms) {
-                let savedArgs = (savedThis = null),
-                    isThrottled = false;
 
-                return function wrapper(...args) {
-                    if (isThrottled) {
-                        savedArgs = args;
-                        savedThis = this;
-                        return;
-                    }
-                    isThrottled = true;
-                    fn.apply(this, args);
-                    setTimeout(() => {
-                        isThrottled = false;
-                        wrapper.apply(savedThis, savedArgs);
-                        savedArgs = savedThis = null;
-                    }, ms);
-                };
+            function generateItem(content) {
+                const node = document.createElement('div');
+                node.classList.add('item');
+                node.textContent = content.item;
+
+                return node;
             }
         </script>
     </body>

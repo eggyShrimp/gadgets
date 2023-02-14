@@ -6,11 +6,15 @@
 
     [最全的—— ES6有哪些新特性？ - 掘金 (juejin.cn)](https://juejin.cn/post/7092965421740982303) 
 
-   @see also: `Symbol.toPrimitive` `Symbol.speices` `Symbol.iterator`
+   @see also: `Sym bol.toPrimitive` `Symbol.speices` `Symbol.iterator`
 
    @see also:  [JavaScript ES7 Function Bind Syntax – Jeremy Fairbank Blog](http://blog.jeremyfairbank.com/javascript/javascript-es7-function-bind-syntax/) 
 
-2. asynchronous loading of `<script>`
+2. variable hoisting
+
+      [javascript - 彻底解决 JS 变量提升的面试题 | 一题一图，超详细包教包会😉 - 个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000039288278) 
+
+3. asynchronous loading of `<script>`
 
    *JavaScript Advanced Programming Design Ch.1* `async` `defer`
 
@@ -18,35 +22,35 @@
 
    @see also: browser mechanism, lifecycle API, lazy loading
 
-3. difference between keyword `var` `let` `const` 
+4. difference between keyword `var` `let` `const` 
 
    [execution context 执行上下文，Lexical Environment 词法环境, hoisting 变量提升](https://github.com/logan70/Blog/issues/2)
 
-4. features/functions of `Array` `Object` `Function` in ES6
+5. features/functions of `Array` `Object` `Function` in ES6
 
    *JavaScript Advanced Programming Design Ch.6*
 
-5. difference between `complementary code` `inverse code`
+6. difference between `complementary code` `inverse code`
 
      [二进制 - 一文读懂原码、反码与补码_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000021511009) 
 
-6. basic data type in ECMA
+7. basic data type in ECMA
 
    `string` `undefined` `null` `symbol` `bigInt` `boolean` `number`
 
-7. `typeof NaN`
+8. `typeof NaN`
 
     `number`
 
-8. method to access `undefined` securely
+9. method to access `undefined` securely
 
      [void 运算符 - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/void) 
 
-9. difference between `Number.isNaN` and `isNaN`
+10. difference between `Number.isNaN` and `isNaN`
 
       [Confusion between isNaN and Number.isNaN in javascript - Stack Overflow](https://stackoverflow.com/questions/33164725/confusion-between-isnan-and-number-isnan-in-javascript) 
 
-10. methods to distinguish data type
+11. methods to distinguish data type
 
    `typeof` `instanceOf` `Object.prototype.toString.call` `constructor(proto)`
 
@@ -158,6 +162,8 @@
 
     [Event Loop and the Big Picture — NodeJS Event Loop Part 1 | by Deepal Jayasekara | Deepal’s Blog (insiderattack.net)](https://blog.insiderattack.net/event-loop-and-the-big-picture-nodejs-event-loop-part-1-1cb67a182810) 
 
+    [Difference between JavaScript eventloop and Nodejs eventloop](https://blog.insiderattack.net/javascript-event-loop-vs-node-js-event-loop-aea2b1b85f5c)
+
     @see also: it encounters problems in the situation of event model (bubbling)
 
 33. `Promise` implementation
@@ -178,13 +184,13 @@
 
      [事件简介 (javascript.info)](https://zh.javascript.info/events) 
 
-     [EventTarget.addEventListener() - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) \
+     [EventTarget.addEventListener() - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 
     @see also: Vue Event Processing(Modifiers), `initEvent` in `new Vue`
 
 4. ways to visit CSS relevant properties in DOM
 
-    `elem.styl` `document.stylesheets` `className/classList` `attribute nodes`
+    `elem.style` `document.stylesheets` `className/classList` `attribute nodes`
 
     `defaultView.getComputedStyle`
 
@@ -320,11 +326,13 @@
 
 16. Cache
 
-       [彻底弄懂 Http 缓存机制 - 基于缓存策略三要素分解法](https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ?)
+     [彻底弄懂 Http 缓存机制 - 基于缓存策略三要素分解法](https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ?)
 
-       *HTTP authoritative guideline Ch.Cache*
+     [Web Performance Calendar » A Tale of Four Caches (perfplanet.com)](https://calendar.perfplanet.com/2016/a-tale-of-four-caches/) 
 
-       @see also: REST cache, difference between `F5` and `Ctrl+F5`, CDN
+     *HTTP authoritative guideline Ch.Cache*
+
+     @see also: REST cache, difference between `F5` and `Ctrl+F5`, CDN
 
 17. the understanding of CDN
 
@@ -339,12 +347,11 @@
 19. implementation of lazy loading (images)
 
     [使用延迟加载提高加载速度 (web.dev)](https://web.dev/lazy-loading/#implementing) 
-        
     [Lazy loading - Web performance | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading) 
 
-    @see also: web performance optimization
-
-    @see also: largest contentful paint
+@see also: web performance optimization
+    
+@see also: largest contentful paint
 
 # Vue
 

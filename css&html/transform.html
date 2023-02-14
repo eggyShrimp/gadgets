@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>transform 3d</title>
+        <title>transform</title>
         <style>
-            #a,
-            #b {
-                position: absolute;
-                min-height: 200px;
+            .form-input {
                 width: 200px;
+                padding: 10px 5px;
+                padding-top: 15px;
+                border: 1px solid #999;
             }
-
-            #a {
-                left: 10px;
-                top: 10px;
-                z-index: 2;
-                background-color: antiquewhite;
+            .form-input + .form-label {
+                position: relative;
+                display: inline-block;
+                color: #999;
+                transform-origin: top left;
+                left: -200px;
+                transition: color 0.3s, transform 0.3s;
             }
-
-            #b {
-                left: 50px;
-                top: 50px;
-                z-index: 1;
-                animation: move 1s linear;
-                background-color: aqua;
-            }
-
-            @keyframes move {
-                from {
-                    transform: translateX(0);
-                }
-                to {
-                    transform: translateX(70px);
-                }
+            .form-input:focus + .form-label {
+                color: #333;
+                transform: scale(0.7) translateY(-15px);
             }
         </style>
     </head>
     <body>
-        <div id="a">A</div>
-        <div id="b">B</div>
+        <div class="wrapper">
+            <input type="text" id="name" name="name" class="form-input" />
+            <label for="name" class="form-label">Name</label>
+        </div>
     </body>
 </html>

@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>link</title>
-        <link rel="stylesheet" href="../css/default.css">
-        <link rel="stylesheet preload" href="../css/red.css" title="red">
-        <link rel="stylesheet alternate" href="../css/blue.css" title="blue">
-        <link rel="stylesheet" href="../css/yellow.css" media="print">
+        <title>async loading of stylesheets</title>
+        <link rel="stylesheet" href="../css/default.css" title="default">
+        <link rel='preload' href="../css/red.css" title="red" as="style" onload="this.rel='stylesheet'">
+        <!-- <link rel="stylesheet alternate" href="../css/blue.css" title="blue">
+        <link rel="stylesheet" href="../css/yellow.css" media="yellow"> -->
+        <style>
+            html {
+                filter: grayscale(0.5);
+            }
+        </style>
     </head>
     <body>
-        <p>Alternate stylesheet test</p>
-        <input type="button" value="toggle" id="toggle">
+        <label for="colorSelect">Choose the color:</label>
+        <select name="colors" id="colorSelect"></select>
         <script>
-            let style = document.querySelector('link[title="blue"]')
-            console.log(style);
-            toggle.addEventListener('click', e => { 
-                style.disabled = !style.disabled;
+            const colors = [
+                'default', 'red'
+            ];
+            for (let color of colors) {
+                const option = document.createElement('option');
+                option.value = color;
+                option.textContent = color;
+                colorSelect.append(option);
+            }
+
+            const links = document.querySelectorAll(`link`);
+            // links.forEach(console.log)
+
+            colorSelect.addEventListener('change', function(event) {
+                const target = event.target.value;
+                links.forEach(link => {
+                    link.disabled = !(link.title === target || link.media === target);
+                });
+                console.log(document.styleSheets)
             })
         </script>
     </body>

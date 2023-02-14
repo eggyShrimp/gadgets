@@ -2,16 +2,17 @@
  * [https://github.com/lodash/lodash]
  */
 
-function isArguments(value) {
-    return isObjectLike(value) && getTag(value) == '[object Arguments]';
-}
-
 function isObjectLike(value) {
-    return typeof value === 'object' && value !== null;
+    return typeof value === 'object' && value != null;
 }
 
 function isObject(value) {
-    const type = typeof value;   return value != null && (type === 'object' || type === 'function');
+    const type = typeof value;
+    return value != null && (type === 'object' || type === 'function');
+}
+
+function isArguments(value) {
+    return isObjectLike(value) && getTag(value) == '[object Arguments]';
 }
 
 function isArrayLike(value) {
@@ -57,8 +58,8 @@ function isEmpty(value) {
     if (isArrayLike(value) &&
         (Array.isArray(value) || typeof value === 'string' || typeof value.splice === 'function' ||
             isBuffer(value) || isTypedArray(value) || isArguments(value))) {
-                return !value.length;
-            }
+        return !value.length;
+    }
     const tag = getTag(value);
     if (tag == '[object Map]' || tag == '[object Set]') {
         return !value.size;
@@ -78,7 +79,7 @@ function isPrototype(value) {
     const Ctor = value && value.constructor;
     const proto = (typeof Ctor === 'function' && Ctor.prototype) ||
         objectProto;
-    
+
     return value === proto;
 }
 
@@ -88,7 +89,7 @@ function isFunction(value) {
 
 function isString(value) {
     const type = typeof value;
-    return type === 'string' || 
+    return type === 'string' ||
         (type === 'object' && value != nufll && !Array.isArray(value) && getTag(value) == '[object String]')
 }
 

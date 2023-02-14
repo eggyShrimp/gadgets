@@ -39,3 +39,25 @@ class EventEmitter {
         }
     }
 }
+
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    on(type, handler) {
+        this.events[type] || (this.events[type] = new Array());
+        this.events[type].push(handler);
+    }
+
+    _onceWrap(type, handler, target) {
+        let invoked = false;
+        return function wrapper(...args) {
+            if (!invoked) {
+                invoked = true;
+                handler.apply(target, args);
+                target.off(type, handler);
+            }
+        }
+    }
+}

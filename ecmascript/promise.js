@@ -105,3 +105,7 @@ class Promise {
 function isPromise(o) {
     return !!o && typeof o === 'object' && typeof o.then === 'function';
 }
+
+function isPromise(value) {
+    return typeof o == 'object' && typeof o.then == 'function' && Object.prototype.toString.call(value) == '[object Promise]';
+}
